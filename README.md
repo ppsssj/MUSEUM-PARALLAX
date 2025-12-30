@@ -1,18 +1,79 @@
-# Museum Window (Head-Tracked Parallax) — React + R3F
+# 🖼️ MUSEUM PARALLAX
 
-세련된 미술관 감상 경험을 목표로 만든 테스트 프로젝트입니다.
-웹캠 기반 얼굴 트래킹으로 사용자의 위치 변화를 추정하고, 카메라의 `projectionMatrix`를 오프-센터로 조정해
-'창문처럼' 보이는 시차(parallax)를 구현합니다.
+**Interactive parallax art gallery with head-tracked camera and cinematic zoom**
 
-## Run
+This project explores how subtle camera parallax and layered imagery can make digital art feel spatial and alive.  
+By combining off-axis projection, head/mouse tracking, and cinematic camera transitions, the gallery feels like looking through a living window rather than a flat screen.
 
-```bash
-npm i
-npm run dev
-```
+---
 
-## Notes
+## ✨ Overview
 
-- 트래킹이 꺼져 있거나 카메라 권한이 거부되면, 마우스 움직임이 시차 입력으로 대체됩니다.
-- 작품 이미지는 외부 파일 없이도 바로 동작하도록 **캔버스 텍스처(추상 레이어)**로 생성했습니다.
-  실제 작품으로 바꾸려면 `src/scene/ArtworkFrame.jsx`에서 레이어 텍스처만 교체하면 됩니다.
+<img src="assets/overview.png" width="900" />
+
+A calm, museum-like virtual space where artworks subtly respond to the viewer’s position.  
+Camera parallax is applied without breaking composition, maintaining a refined and non-game-like experience.
+
+---
+
+## 🔍 Inspect Mode
+
+<img src="assets/inspect.png" width="900" />
+
+When an artwork is selected:
+- The camera **smoothly zooms in** toward the piece  
+- Only **very limited rotation** is allowed for close inspection  
+- A soft spotlight enhances focus without overpowering the artwork  
+- Closing returns the camera **cinematically** to its original position  
+
+---
+
+## 🧠 Key Features
+
+- **Head / Mouse Tracked Parallax**  
+  Off-axis projection shifts the camera frustum instead of moving the camera itself
+
+- **2.5D Layered Artworks**  
+  Background, midground, and foreground layers create depth through subtle parallax
+
+- **Cinematic Camera Transitions**  
+  Smooth zoom-in, lock, inspect, and return flow without abrupt cuts
+
+- **Minimal Interaction Design**  
+  No aggressive controls — interaction stays quiet and gallery-like
+
+---
+
+## 🛠️ Tech Stack
+
+- **React**
+- **Three.js**
+- **@react-three/fiber / drei**
+- **WebGL**
+- **MediaPipe (Face Tracking)**
+- Mouse fallback when camera access is unavailable
+
+---
+
+## 🎯 Motivation
+
+Most 3D web experiences feel either flat or overly game-like.  
+This project focuses on **restraint** — using just enough motion to enhance perception without distracting from the artwork itself.
+
+---
+
+## 📌 Notes
+
+- All artworks are used for **non-commercial, experimental purposes**
+- This repository serves as a **visual interaction study** and showcase prototype
+
+---
+
+## 🚀 Future Ideas
+
+- Subtle normal-mapped highlights for foreground layers
+- Ambient sound that reacts to camera proximity
+- Automatic layer extraction experiments
+
+---
+
